@@ -33,14 +33,14 @@ sh build.sh
 | ROW_BLOCK_THRESH | Merge nodes until one row has more than $rb$ nnz or there are 32 nodes | $rb$ |
 | ROW_BLOCK_AVG | Merge nodes if the average nnz of 32 rows is more that $rb$ | $rb$ |
 
-| Schedule Strategy | Description |
-| ----------------- | ----------- |
-| SIMPLE | Schedule nodes on warps in a round-robin way |
-| WORKLOAD_BALANCE | Schedule nodes on the warp with minimum workload |
-| WARP_LOCALITY | Schedule nodes on the near warp of their parents |
-| BALANCE_AND_LOCALITY | Estimated cost model, described in the paper |
-| SEQUENTIAL |  |
-| SEQUENTIAL2 | Leave scheduling to GPU hardware |
+| Schedule Strategy | Description | Order |
+| ----------------- | ----------- | ----- |
+| SIMPLE | Schedule nodes on warps in a round-robin way | Level |
+| WORKLOAD_BALANCE | Schedule nodes on the warp with minimum workload | Level |
+| WARP_LOCALITY | Schedule nodes on the near warp of their parents | Level |
+| BALANCE_AND_LOCALITY | Estimated cost model, described in the paper | Level |
+| SEQUENTIAL | Schedule with row ID | Sequential |
+| SEQUENTIAL2 | Leave scheduling to GPU hardware | Sequential |
 
 2. Run ``sh scripts/run.sh {input matrix}`` to evaluate the performance of AG-SpTRSV with a single matrix. For example:
 ```
