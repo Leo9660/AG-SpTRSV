@@ -20,11 +20,20 @@ sh build.sh
 ```
 ### Transform the matrix
 1. Download the matrix from SuiteSparse Matrix Collection (<https://sparse.tamu.edu/>). Sample matrices are in ``matrix/matrix_sample``.
-2. Transform the general matrix into a triangular matrix. Run ``./matrix/transfer {.mtx file} {output file}``. For example
+2. Transform the general matrix into a triangular matrix. Run ``./matrix/transfer {.mtx file} {output file}``. For example: 
 ```
 ./matrix/transfer matrix/matrix_sample/delaunay_n13.mtx matrix/matrix_sample_csr/delaunay_n13.csr
 ```
 ### Run AG-SpTRSV with manually specified strategies
-1. Modify Line 80-82 in code file ``test/test.cu``. Strategies are provided in ``include/strategy.h``.
-2. 
+1. Modify Line 80-82 in code file ``test/test.cu``. Strategies are provided in ``include/strategy.h``. Supported strategies are listed as follows:  
+| Analyse Strategy | Description |  
+| ----------- | ----------- |  
+| Header      | Title       |  
+| Paragraph   | Text        |  
+2. Run ``sh scripts/run.sh {input matrix}`` to evaluate AG-SpTRSV with a single matrix. For example:
+```
+cd scripts
+sh scripts/run.sh matrix/matrix_sample_csr/delaunay_n13.csr
+```
+4. 
 
