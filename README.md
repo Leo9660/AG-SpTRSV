@@ -15,8 +15,7 @@ Python packages: Pytorch 3.1.12
 ## Build up & Execution
 ### Compile
 ```
-cd scripts
-sh build.sh
+sh scripts/build.sh
 ```
 ### Transform the matrix
 1. Download the matrix from SuiteSparse Matrix Collection (<https://sparse.tamu.edu/>). Sample matrices are in ``matrix/matrix_sample``.
@@ -44,8 +43,15 @@ sh build.sh
 
 2. Run ``sh scripts/run.sh {input matrix}`` to evaluate the performance of AG-SpTRSV with a single matrix. For example:
 ```
-cd scripts
 sh scripts/run.sh matrix/matrix_sample_csr/delaunay_n13.csr
 ```
 ### Run AG-SpTRSV with exaustive search
-
+Run ``sh scripts/run_search.sh {input matrix}`` to evaluate the performance of AG-SpTRSV with a single matrix. This script enables AG-SpTRSV to search among all the available schemes in the optimization space. The search space is defined in Line 86-88 of ``test/test_search.cu``. For example:
+```
+sh scripts/run_search.sh matrix/matrix_sample_csr/delaunay_n13.csr
+```
+Run ``sh scripts/run_search.sh {input matrix} {output file}`` to write evaluation statistics to files. For example:
+```
+sh scripts/run_search.sh matrix/matrix_sample_csr/delaunay_n13.csr 
+```
+### Evaluate the performance ranking model
