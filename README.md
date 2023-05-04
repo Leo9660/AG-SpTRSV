@@ -55,8 +55,8 @@ Run ``sh scripts/run_search.sh {input matrix} {output file}`` to write evaluatio
 sh scripts/run_search.sh matrix/matrix_sample_csr/delaunay_n13.csr perf_data/sample.csv
 ```
 ### Evaluate the performance ranking model
-1. Run ``./matrix/info {input matrix} {output file}`` to write features of the input matrix to files. These features are required by the performance ranking model. For example:
+1. Run ``sh scripts/get_info.sh {input matrix} {output file}`` to write features of the input matrix to files. These features are required by the performance ranking model. For example:
 ```
-./matrix/info matrix/matrix_sample_csr/delaunay_n13.csr perf_data/sample_info.csv
+sh scripts/get_info.sh matrix/matrix_sample_csr/delaunay_n13.csr perf_data/sample.csv
 ```
 2. 
