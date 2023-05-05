@@ -59,11 +59,11 @@ sh scripts/run_search.sh matrix/matrix_sample_csr/delaunay_n13.csr perf_data/sam
 ```
 sh scripts/get_info.sh matrix/matrix_sample_csr/delaunay_n13.csr perf_data/sample.csv
 ```
-2. Run ``python model/model_eval.py {input info file} {input info file} {training-set split ratio} {output model | optional}`` to take history data as input and train the ranking model. We use LambdaMART for listwise ranking and leverage Pyltr (Python learning-to-rank toolkit, see <https://github.com/jma127/pyltr>). We provide our history performance data on NVIDIA RTX 3080Ti in ``perf_data`` to help reproduce the results in our paper. For example,
+2. Run ``python model/model_eval.py {input info file} {input info file} {training-set split ratio} {output model | optional}`` to take history data as input and train the ranking model. We use LambdaMART for listwise ranking and leverage Pyltr (Python learning-to-rank toolkit, see <https://github.com/jma127/pyltr>). We provide our history performance data on NVIDIA RTX 3080Ti in ``perf_data`` to help reproduce the results in our paper. The program will output MAPE (Mean Absolute Percentage Error) and Accuracy (the proportion of cases where model-selected scheme achieves at least 95% of the performance of the best scheme). For example,
 ```
 python model/model_eval.py perf_data/history_info.csv perf_data/history_on_3080Ti.csv 0.7
 ```
-Save model to files (model file) to further guide AG-SpTRSV. For example, 
+Save the model to files (model file) to further guide AG-SpTRSV. For example, 
 ```
 python model/model_eval.py perf_data/history_info.csv perf_data/history_on_3080Ti.csv 0.7 perf_data/output_model
 ```
